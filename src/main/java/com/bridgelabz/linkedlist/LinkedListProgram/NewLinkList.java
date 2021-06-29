@@ -1,6 +1,6 @@
 package com.bridgelabz.linkedlist.LinkedListProgram;
 
-public class NewLinkList {
+public class NewLinkList<K> {
 	public INode head;
 	public INode tail;
 
@@ -56,6 +56,16 @@ public class NewLinkList {
 		return tempNode;
 	}
 
+	public boolean search(K key) {
+		INode tempNode = head;
+		while (tempNode != null && tempNode.getNext() != null) {
+			if (tempNode.getNext().getKey().equals(key)) {
+				return true;
+			}
+		}
+		return false;
+	}
+
 	public void printNodes() {
 		StringBuffer nodes = new StringBuffer("My Nodes: ");
 		INode tempNode = head;
@@ -68,5 +78,5 @@ public class NewLinkList {
 		nodes.append(tempNode.getKey());
 		System.out.println(nodes);
 	}
-
 }
+
